@@ -433,36 +433,63 @@ code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Libera
   .nav__links{display:none}
 }
 
-/* KPI banner */
-.kpiRow{
-  display:flex;
-  gap:18px;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:center;
-  padding:14px 16px;
-  border-radius: 999px;
-  border:1px solid var(--line);
-  background: var(--panel2);
-  font-weight: 800;
-  text-align:center;
+/* KPI boxed metrics */
+.kpiGrid{
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap:16px;
+  margin-top: 10px;
 }
 
-.kpiRow span{
-  white-space: nowrap;
-  font-size: 14px;
-  color: color-mix(in oklab, var(--text) 88%, var(--muted));
+.kpiBox{
+  padding:18px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: linear-gradient(
+    180deg,
+    var(--card),
+    var(--panel2)
+  );
+  text-align:center;
+  box-shadow: var(--shadow);
+}
+
+.kpiValue{
+  font-size: 22px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--a1), var(--a2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.kpiLabel{
+  margin-top:6px;
+  font-size:14px;
+  font-weight:800;
+}
+
+.kpiDesc{
+  margin-top:4px;
+  font-size:12px;
+  color: var(--muted);
 }
 
 .kpiNote{
-  margin:10px 0 0;
+  margin-top:12px;
   text-align:center;
   font-size:12px;
   color: var(--muted);
 }
 
-@media (max-width: 640px){
-  .kpiRow{
-    border-radius: var(--radius);
+/* Responsive */
+@media (max-width: 960px){
+  .kpiGrid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px){
+  .kpiGrid{
+    grid-template-columns: 1fr;
   }
 }
