@@ -283,9 +283,9 @@
         <!-- ✅ OPTION A: FORMSPREE (simple HTML form: set action to endpoint) -->
         <!-- Formspree supports action="https://formspree.io/f/xzdgjrnq" method="post" -->
         <!-- Source: Formspree HTML form example -->
-        <form class="form" id="contactForm"
-      action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID"
-      method="POST" data-ajax="true">
+       <form class="form" id="my-form"
+      action="https://formspree.io/f/xzdgjrnq"
+      method="POST">
 
   <div class="fieldRow">
     <label>
@@ -304,12 +304,10 @@
     <textarea name="message" rows="4" placeholder="How can we help?" required></textarea>
   </label>
 
-  <!-- Optional: email subject line -->
-  <input type="hidden" name="_subject" value="New enquiry from AMX Advisory site">
+  <input type="hidden" name="_subject" value="New message from AMX Advisory website">
 
   <button class="btn btn--wide" type="submit">Send</button>
-
-  <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+  <p class="form__status" id="my-form-status" role="status" aria-live="polite"></p>
 </form>
 ``
 
