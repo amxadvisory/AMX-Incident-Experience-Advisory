@@ -433,43 +433,194 @@ code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Libera
   .nav__links{display:none}
 }
 
-.kpi-section {
-  padding: 50px 20px;
-  background: #f5f7fb;
+/* ---------------------------
+   KPI Section (theme-aware + aligned + charts)
+---------------------------- */
+.kpi-section{
+  padding: 26px 0 10px;
 }
 
-.kpi-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  max-width: 1100px;
-  margin: auto;
+.kpi-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap: 14px;
+  margin-bottom: 14px;
 }
 
-.kpi-card {
-  background: white;
-  border-radius: 14px;
-  padding: 30px;
-  text-align: center;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+.kpi-title{
+  margin:0;
+  font-size: 22px;
+  letter-spacing: -0.02em;
 }
 
-.kpi-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 45px rgba(0,0,0,0.15);
-}
-
-.kpi-card h3 {
-  font-size: 36px;
-  margin: 0;
-  color: #4f46e5;
-}
-
-.kpi-card p {
-  margin-top: 10px;
+.kpi-sub{
+  margin:0;
+  color: var(--muted);
+  max-width: 62ch;
   font-size: 14px;
-  color: #555;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+}
+
+.kpi-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+/* Card base */
+.kpi-card{
+  position:relative;
+  overflow:hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--panel), var(--panel2));
+  box-shadow: 0 14px 40px rgba(0,0,0,.18);
+  padding: 16px;
+  transform: translateZ(0);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.kpi-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 22px 60px rgba(0,0,0,.26);
+  border-color: color-mix(in oklab, var(--line) 55%, transparent);
+}
+
+/* Gradient glow */
+.kpi-card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background: radial-gradient(1200px 220px at 20% -10%, var(--kpiGlow), transparent 55%),
+              radial-gradient(900px 220px at 90% 10%, color-mix(in oklab, var(--kpiGlow) 60%, transparent), transparent 58%);
+  opacity:.55;
+  pointer-events:none;
+}
+
+.kpi-top{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap: 12px;
+}
+
+.kpi-icon{
+  width: 44px;
+  height: 44px;
+  display:grid;
+  place-items:center;
+  border-radius: 14px;
+  border: 1px solid color-mix(in oklab, var(--line) 70%, transparent);
+  background: linear-gradient(135deg,
+    color-mix(in oklab, var(--kpiGlow) 38%, transparent),
+    color-mix(in oklab, var(--kpiGlow2) 22%, transparent)
+  );
+}
+
+.kpi-icon .lucide{ width:20px; height:20px; }
+
+.kpi-meta{ min-width:0; }
+
+.kpi-label{
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 800;
+  letter-spacing:.06em;
+  text-transform: uppercase;
+}
+
+.kpi-value{
+  margin-top: 2px;
+  font-size: 32px;
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: color-mix(in oklab, var(--text) 92%, var(--kpiGlow));
+}
+
+.kpi-unit{
+  font-size: 14px;
+  font-weight: 900;
+  margin-left: 3px;
+  color: color-mix(in oklab, var(--text) 70%, var(--muted));
+}
+
+/* Sparkline chart */
+.kpi-chart{
+  position:relative;
+  margin-top: 12px;
+  height: 42px;
+  border-radius: 14px;
+  border: 1px solid color-mix(in oklab, var(--line) 65%, transparent);
+  background: color-mix(in oklab, var(--panel2) 86%, transparent);
+  overflow:hidden;
+}
+
+.kpi-chart svg{ width:100%; height:100%; display:block; }
+
+.kpi-chart .area{
+  fill: color-mix(in oklab, var(--kpiGlow) 22%, transparent);
+}
+
+.kpi-chart .line{
+  fill:none;
+  stroke: color-mix(in oklab, var(--kpiGlow) 78%, var(--text));
+  stroke-width: 2.2;
+  opacity:.95;
+  filter: drop-shadow(0 8px 18px color-mix(in oklab, var(--kpiGlow) 25%, transparent));
+}
+
+/* Footer row */
+.kpi-foot{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.kpi-note{
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.kpi-pill{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--line) 70%, transparent);
+  background: color-mix(in oklab, var(--panel2) 86%, transparent);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.kpi-pill .lucide{ width:14px; height:14px; }
+
+/* Trend states */
+.kpi-pill.up{
+  color: color-mix(in oklab, var(--a3) 85%, var(--text));
+  box-shadow: 0 10px 26px color-mix(in oklab, var(--a3) 18%, transparent);
+}
+.kpi-pill.down{
+  color: color-mix(in oklab, #fb7185 70%, var(--text));
+  box-shadow: 0 10px 26px color-mix(in oklab, #fb7185 18%, transparent);
+}
+
+/* Color variants using your existing accent tokens */
+.kpi--violet{ --kpiGlow: color-mix(in oklab, var(--a1) 92%, transparent); --kpiGlow2: var(--a2); }
+.kpi--cyan{   --kpiGlow: color-mix(in oklab, var(--a2) 92%, transparent); --kpiGlow2: var(--a3); }
+.kpi--green{  --kpiGlow: color-mix(in oklab, var(--a3) 92%, transparent); --kpiGlow2: var(--a2); }
+.kpi--mix{    --kpiGlow: color-mix(in oklab, var(--a1) 70%, var(--a3));  --kpiGlow2: var(--a2); }
+
+/* Responsive */
+@media (max-width: 960px){
+  .kpi-head{ align-items:flex-start; flex-direction:column; }
+  .kpi-grid{ grid-template-columns: 1fr; }
+}
+@media (min-width: 961px) and (max-width: 1180px){
+  .kpi-grid{ grid-template-columns: repeat(2, 1fr); }
 }
