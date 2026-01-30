@@ -434,10 +434,10 @@ code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Libera
 }
 
 /* ---------------------------
-   KPI (MTTR/MTBF) – compact, aligned, theme-aware
+   KPI Table (MTTR / MTBF) – theme-aware
 ---------------------------- */
 .kpi-section{
-  padding: 10px 0 34px;
+  padding: 16px 0 34px;
 }
 
 .kpi-head{
@@ -445,7 +445,7 @@ code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Libera
   align-items:flex-end;
   justify-content:space-between;
   gap: 14px;
-  margin: 4px 0 14px;
+  margin: 6px 0 14px;
 }
 
 .kpi-title{
@@ -457,197 +457,170 @@ code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Libera
 .kpi-sub{
   margin:0;
   color: var(--muted);
-  max-width: 70ch;
+  max-width: 72ch;
   font-size: 14px;
 }
 
-.kpi-grid{ display:grid; gap: 16px; }
-.kpi-grid--two{ grid-template-columns: repeat(2, 1fr); }
-
-/* Card */
-.kpi2-card{
-  position:relative;
-  overflow:hidden;
+/* Table container */
+.kpi-tableWrap{
   border-radius: var(--radius);
   border: 1px solid var(--line);
   background: linear-gradient(180deg, var(--panel), var(--panel2));
-  box-shadow: 0 14px 44px rgba(0,0,0,.18);
-  padding: 18px;
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  box-shadow: 0 18px 60px rgba(0,0,0,.22);
+  overflow: hidden;
 }
 
-.kpi2-card:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 22px 66px rgba(0,0,0,.28);
-  border-color: color-mix(in oklab, var(--line) 60%, transparent);
+/* Table */
+.kpi-table{
+  width:100%;
+  border-collapse: separate;
+  border-spacing: 0;
 }
 
-/* soft glow */
-.kpi2-card::before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  background:
-    radial-gradient(800px 220px at 15% -20%, var(--kpiGlow), transparent 55%),
-    radial-gradient(700px 200px at 100% 0%, color-mix(in oklab, var(--kpiGlow2) 60%, transparent), transparent 60%);
-  opacity:.45;
-  pointer-events:none;
+.kpi-table thead th{
+  text-align:left;
+  padding: 14px 16px;
+  font-size: 12px;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: color-mix(in oklab, var(--panel2) 92%, transparent);
+  border-bottom: 1px solid var(--line);
 }
 
-.kpi2-top{
-  position:relative;
+.kpi-table tbody td{
+  padding: 16px;
+  vertical-align: top;
+  border-bottom: 1px solid color-mix(in oklab, var(--line) 70%, transparent);
+}
+
+.kpi-table tbody tr:last-child td{
+  border-bottom: none;
+}
+
+/* Zebra hover */
+.kpi-table tbody tr{
+  transition: background .2s ease;
+}
+.kpi-table tbody tr:hover{
+  background: color-mix(in oklab, var(--panel2) 65%, transparent);
+}
+
+/* First column (KPI name) */
+.kpi-nameCell{
+  width: 260px;
   display:flex;
   align-items:flex-start;
-  justify-content:space-between;
   gap: 12px;
 }
 
-.kpi2-icon{
-  width: 44px;
-  height: 44px;
+.kpi-icon{
+  width: 40px;
+  height: 40px;
   display:grid;
   place-items:center;
   border-radius: 14px;
   border: 1px solid color-mix(in oklab, var(--line) 70%, transparent);
   background: linear-gradient(135deg,
-    color-mix(in oklab, var(--kpiGlow) 38%, transparent),
-    color-mix(in oklab, var(--kpiGlow2) 18%, transparent)
+    color-mix(in oklab, var(--a1) 26%, transparent),
+    color-mix(in oklab, var(--a2) 18%, transparent)
   );
   flex: 0 0 auto;
 }
-.kpi2-icon .lucide{width:20px;height:20px}
 
-.kpi2-meta{min-width:0}
-.kpi2-label{
-  font-size: 12px;
-  color: var(--muted);
-  font-weight: 900;
-  letter-spacing:.10em;
-  text-transform: uppercase;
+.kpi-icon .lucide{ width:20px; height:20px; }
+
+.kpi-code{
+  font-weight: 950;
+  letter-spacing: .06em;
+  color: var(--text);
+  font-size: 14px;
 }
-.kpi2-name{
+
+.kpi-full{
   margin-top: 2px;
-  font-size: 14px;
-  font-weight: 800;
-  color: color-mix(in oklab, var(--text) 90%, var(--muted));
-}
-
-/* badge */
-.kpi2-badge{
-  display:inline-flex;
-  align-items:center;
-  gap: 8px;
-  padding: 7px 10px;
-  border-radius: 999px;
-  border: 1px solid color-mix(in oklab, var(--line) 70%, transparent);
-  background: color-mix(in oklab, var(--panel2) 90%, transparent);
-  font-weight: 900;
-  font-size: 12px;
-  white-space:nowrap;
-}
-.kpi2-badge .lucide{width:14px;height:14px}
-.kpi2-badge--good{
-  color: color-mix(in oklab, var(--a3) 86%, var(--text));
-  box-shadow: 0 10px 26px color-mix(in oklab, var(--a3) 14%, transparent);
-}
-
-/* values row (no graphs) */
-.kpi2-valueRow{
-  position:relative;
-  display:flex;
-  align-items:baseline;
-  justify-content:space-between;
-  gap: 12px;
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid color-mix(in oklab, var(--line) 70%, transparent);
-}
-
-.kpi2-value{
-  font-size: 40px;
-  line-height: 1.0;
-  font-weight: 950;
-  letter-spacing: -0.04em;
-  color: color-mix(in oklab, var(--text) 92%, var(--kpiGlow));
-}
-.kpi2-unit{
-  font-size: 14px;
-  font-weight: 900;
-  color: var(--muted);
-  margin-left: 6px;
-}
-
-.kpi2-delta{
-  display:grid;
-  gap: 2px;
-  justify-items:end;
-  text-align:right;
-  font-weight: 950;
   font-size: 13px;
-}
-.kpi2-delta .lucide{width:14px;height:14px; margin-right:6px}
-.kpi2-deltaNote{
-  font-size: 12px;
-  font-weight: 800;
   color: var(--muted);
+  font-weight: 800;
 }
-.kpi2-delta--up{ color: color-mix(in oklab, var(--a3) 82%, var(--text)); }
-.kpi2-delta--down{ color: color-mix(in oklab, #fb7185 70%, var(--text)); }
 
-/* achievements list */
-.kpi2-achievements{
-  position:relative;
+/* Definition + highlights */
+.kpi-def{
+  color: color-mix(in oklab, var(--text) 86%, var(--muted));
+  font-weight: 650;
+  max-width: 52ch;
+}
+
+.kpi-list{
+  list-style:none;
+  margin:0;
+  padding:0;
   display:grid;
   gap: 10px;
-  margin-top: 12px;
 }
-.kpi2-ach{
+
+.kpi-list li{
   display:flex;
   gap: 10px;
   align-items:flex-start;
-  padding: 10px 12px;
-  border-radius: var(--radius-sm);
-  border: 1px solid color-mix(in oklab, var(--line) 70%, transparent);
-  background: color-mix(in oklab, var(--panel2) 88%, transparent);
   color: color-mix(in oklab, var(--text) 86%, var(--muted));
-  font-weight: 700;
+  font-weight: 650;
   font-size: 13px;
+  line-height: 1.45;
 }
-.kpi2-ach .lucide{
-  width:18px;height:18px;
+
+.kpi-list .lucide{
+  width:18px;
+  height:18px;
   flex: 0 0 auto;
   margin-top: 1px;
   color: color-mix(in oklab, var(--a3) 78%, var(--text));
 }
 
-/* footer chips */
-.kpi2-foot{
-  position:relative;
-  display:flex;
-  gap: 10px;
-  flex-wrap:wrap;
-  margin-top: 12px;
+/* Status badge */
+.kpi-status{
+  width: 160px;
 }
-.kpi2-chip{
+
+.kpi-badge{
   display:inline-flex;
   align-items:center;
   gap: 8px;
-  padding: 7px 10px;
+  padding: 8px 10px;
   border-radius: 999px;
   border: 1px solid color-mix(in oklab, var(--line) 70%, transparent);
   background: color-mix(in oklab, var(--panel2) 90%, transparent);
-  color: var(--muted);
-  font-weight: 800;
+  font-weight: 900;
   font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
 }
-.kpi2-chip .lucide{width:14px;height:14px}
+.kpi-badge .lucide{ width:14px; height:14px; }
 
-/* Color variants */
-.kpi2--mttr{ --kpiGlow: color-mix(in oklab, var(--a2) 88%, transparent); --kpiGlow2: var(--a1); }
-.kpi2--mtbf{ --kpiGlow: color-mix(in oklab, var(--a3) 88%, transparent); --kpiGlow2: var(--a2); }
+.kpi-badge--good{
+  color: color-mix(in oklab, var(--a3) 86%, var(--text));
+  box-shadow: 0 10px 26px color-mix(in oklab, var(--a3) 14%, transparent);
+}
 
-/* Responsive */
+/* Responsive: make table mobile-friendly */
 @media (max-width: 960px){
   .kpi-head{ align-items:flex-start; flex-direction:column; }
-  .kpi-grid--two{ grid-template-columns: 1fr; }
+
+  /* turn table into stacked cards */
+  .kpi-table thead{ display:none; }
+  .kpi-table, .kpi-table tbody, .kpi-table tr, .kpi-table td{
+    display:block;
+    width:100%;
+  }
+  .kpi-table tbody td{
+    border-bottom: none;
+    padding: 12px 16px;
+  }
+  .kpi-table tbody tr{
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .kpi-nameCell{ width:100%; }
+  .kpi-status{ width:100%; padding-top: 0; }
 }
+``
