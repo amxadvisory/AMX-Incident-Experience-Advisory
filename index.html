@@ -110,107 +110,95 @@
       </div>
     </section>
     
-<section class="kpi-section" aria-label="Operational KPIs">
+<section class="kpi-section" aria-label="Reliability KPIs">
   <div class="container">
     <div class="kpi-head" data-reveal>
-      <h2 class="kpi-title">Operational snapshot</h2>
-      <p class="kpi-sub">Live indicators for service posture, compliance, and experience.</p>
+      <h2 class="kpi-title">Reliability KPIs</h2>
+      <p class="kpi-sub">Two high-signal outcomes that reflect service restoration speed and stability.</p>
     </div>
 
-    <div class="kpi-grid" data-reveal>
+    <div class="kpi-grid kpi-grid--two" data-reveal>
+      <!-- MTTR -->
+      <article class="kpi2-card kpi2--mttr">
+        <div class="kpi2-top">
+          <div class="kpi2-icon"><i data-lucide="timer"></i></div>
+          <div class="kpi2-meta">
+            <div class="kpi2-label">MTTR</div>
+            <div class="kpi2-name">Mean Time to Restore</div>
+          </div>
+          <span class="kpi2-badge kpi2-badge--good">
+            <i data-lucide="badge-check"></i> Success
+          </span>
+        </div>
 
-      <!-- KPI 1 -->
-      <article class="kpi-card kpi--violet">
-        <div class="kpi-top">
-          <div class="kpi-icon"><i data-lucide="ticket"></i></div>
-          <div class="kpi-meta">
-            <div class="kpi-label">Open Tickets</div>
-            <div class="kpi-value">24</div>
+        <div class="kpi2-valueRow">
+          <div class="kpi2-value">
+            2.1 <span class="kpi2-unit">hrs</span>
+          </div>
+          <div class="kpi2-delta kpi2-delta--up">
+            <i data-lucide="trending-down"></i> -28%
+            <span class="kpi2-deltaNote">QoQ improvement</span>
           </div>
         </div>
 
-        <div class="kpi-chart" aria-hidden="true">
-          <svg viewBox="0 0 120 36" preserveAspectRatio="none">
-            <path class="area" d="M0,30 C12,26 22,28 34,18 C46,8 58,14 70,10 C82,6 96,14 120,6 L120,36 L0,36 Z"></path>
-            <path class="line" d="M0,30 C12,26 22,28 34,18 C46,8 58,14 70,10 C82,6 96,14 120,6"></path>
-          </svg>
-        </div>
-
-        <div class="kpi-foot">
-          <span class="kpi-pill up"><i data-lucide="trending-up"></i> +8% WoW</span>
-          <span class="kpi-note">Queue pressure</span>
-        </div>
-      </article>
-
-      <!-- KPI 2 -->
-      <article class="kpi-card kpi--cyan">
-        <div class="kpi-top">
-          <div class="kpi-icon"><i data-lucide="shield-check"></i></div>
-          <div class="kpi-meta">
-            <div class="kpi-label">SLA Compliance</div>
-            <div class="kpi-value">98<span class="kpi-unit">%</span></div>
+        <div class="kpi2-achievements" role="list">
+          <div class="kpi2-ach" role="listitem">
+            <i data-lucide="check-circle-2"></i>
+            <span>Standardised triage + comms cadence reduced time-to-decision.</span>
+          </div>
+          <div class="kpi2-ach" role="listitem">
+            <i data-lucide="check-circle-2"></i>
+            <span>Runbooks + escalation paths improved first-hour recovery actions.</span>
           </div>
         </div>
 
-        <div class="kpi-chart" aria-hidden="true">
-          <svg viewBox="0 0 120 36" preserveAspectRatio="none">
-            <path class="area" d="M0,18 C18,10 34,16 44,14 C60,10 78,14 90,10 C102,6 110,6 120,8 L120,36 L0,36 Z"></path>
-            <path class="line" d="M0,18 C18,10 34,16 44,14 C60,10 78,14 90,10 C102,6 110,6 120,8"></path>
-          </svg>
-        </div>
-
-        <div class="kpi-foot">
-          <span class="kpi-pill up"><i data-lucide="sparkles"></i> On track</span>
-          <span class="kpi-note">Target ≥ 95%</span>
+        <div class="kpi2-foot">
+          <span class="kpi2-chip"><i data-lucide="activity"></i> Faster recovery</span>
+          <span class="kpi2-chip"><i data-lucide="message-square"></i> Clear updates</span>
+          <span class="kpi2-chip"><i data-lucide="shield-check"></i> Controlled execution</span>
         </div>
       </article>
 
-      <!-- KPI 3 -->
-      <article class="kpi-card kpi--green">
-        <div class="kpi-top">
-          <div class="kpi-icon"><i data-lucide="star"></i></div>
-          <div class="kpi-meta">
-            <div class="kpi-label">User Rating</div>
-            <div class="kpi-value">4.6<span class="kpi-unit">/5</span></div>
+      <!-- MTBF -->
+      <article class="kpi2-card kpi2--mtbf">
+        <div class="kpi2-top">
+          <div class="kpi2-icon"><i data-lucide="pulse"></i></div>
+          <div class="kpi2-meta">
+            <div class="kpi2-label">MTBF</div>
+            <div class="kpi2-name">Mean Time Between Failures</div>
+          </div>
+          <span class="kpi2-badge kpi2-badge--good">
+            <i data-lucide="badge-check"></i> Success
+          </span>
+        </div>
+
+        <div class="kpi2-valueRow">
+          <div class="kpi2-value">
+            19 <span class="kpi2-unit">days</span>
+          </div>
+          <div class="kpi2-delta kpi2-delta--up">
+            <i data-lucide="trending-up"></i> +22%
+            <span class="kpi2-deltaNote">QoQ improvement</span>
           </div>
         </div>
 
-        <div class="kpi-chart" aria-hidden="true">
-          <svg viewBox="0 0 120 36" preserveAspectRatio="none">
-            <path class="area" d="M0,22 C18,26 32,18 44,20 C58,22 70,14 82,16 C96,18 110,10 120,12 L120,36 L0,36 Z"></path>
-            <path class="line" d="M0,22 C18,26 32,18 44,20 C58,22 70,14 82,16 C96,18 110,10 120,12"></path>
-          </svg>
-        </div>
-
-        <div class="kpi-foot">
-          <span class="kpi-pill up"><i data-lucide="thumbs-up"></i> +0.2</span>
-          <span class="kpi-note">Last 30 days</span>
-        </div>
-      </article>
-
-      <!-- KPI 4 -->
-      <article class="kpi-card kpi--mix">
-        <div class="kpi-top">
-          <div class="kpi-icon"><i data-lucide="clipboard-check"></i></div>
-          <div class="kpi-meta">
-            <div class="kpi-label">Pending Reviews</div>
-            <div class="kpi-value">12</div>
+        <div class="kpi2-achievements" role="list">
+          <div class="kpi2-ach" role="listitem">
+            <i data-lucide="check-circle-2"></i>
+            <span>Recurring causes removed via PIR actions + follow-through.</span>
+          </div>
+          <div class="kpi2-ach" role="listitem">
+            <i data-lucide="check-circle-2"></i>
+            <span>Proactive monitoring reduced repeat incidents and noise.</span>
           </div>
         </div>
 
-        <div class="kpi-chart" aria-hidden="true">
-          <svg viewBox="0 0 120 36" preserveAspectRatio="none">
-            <path class="area" d="M0,10 C14,14 30,8 44,12 C60,18 70,16 84,20 C98,24 110,18 120,22 L120,36 L0,36 Z"></path>
-            <path class="line" d="M0,10 C14,14 30,8 44,12 C60,18 70,16 84,20 C98,24 110,18 120,22"></path>
-          </svg>
-        </div>
-
-        <div class="kpi-foot">
-          <span class="kpi-pill down"><i data-lucide="trending-down"></i> -3</span>
-          <span class="kpi-note">Closure improving</span>
+        <div class="kpi2-foot">
+          <span class="kpi2-chip"><i data-lucide="repeat-2"></i> Fewer repeats</span>
+          <span class="kpi2-chip"><i data-lucide="bell"></i> Better signal</span>
+          <span class="kpi2-chip"><i data-lucide="layers"></i> Strong governance</span>
         </div>
       </article>
-
     </div>
   </div>
 </section>
