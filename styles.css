@@ -744,13 +744,3 @@ code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Libera
   .kpi-status{ width:100%; padding-top: 0; }
 }
 ``
-.footer__social {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.footer__social i {
-  width: 20px;
-  height: 20px;
-}
