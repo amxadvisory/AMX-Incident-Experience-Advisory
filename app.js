@@ -61,13 +61,12 @@ const statusEl = document.getElementById('formStatus');
 
 if (form && form.dataset.ajax === "true") {
   form.addEventListener('submit', async (e) => {
-    // If you prefer classic POST (no JS), remove data-ajax="true" in HTML.
     e.preventDefault();
     statusEl.textContent = "Sending…";
 
     try {
       const res = await fetch(form.action, {
-        method: form.method || "POST",
+        method: "POST",
         headers: { "Accept": "application/json" },
         body: new FormData(form)
       });
@@ -83,4 +82,4 @@ if (form && form.dataset.ajax === "true") {
     }
   });
 }
-``
+
