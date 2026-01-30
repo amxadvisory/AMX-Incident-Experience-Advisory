@@ -110,29 +110,108 @@
       </div>
     </section>
     
-<section class="kpi-section">
-  <div class="kpi-container">
-
-    <div class="kpi-card">
-      <h3>24</h3>
-      <p>Open Tickets</p>
+<section class="kpi-section" aria-label="Operational KPIs">
+  <div class="container">
+    <div class="kpi-head" data-reveal>
+      <h2 class="kpi-title">Operational snapshot</h2>
+      <p class="kpi-sub">Live indicators for service posture, compliance, and experience.</p>
     </div>
 
-    <div class="kpi-card">
-      <h3>98%</h3>
-      <p>SLA Compliance</p>
-    </div>
+    <div class="kpi-grid" data-reveal>
 
-    <div class="kpi-card">
-      <h3>4.6</h3>
-      <p>User Rating</p>
-    </div>
+      <!-- KPI 1 -->
+      <article class="kpi-card kpi--violet">
+        <div class="kpi-top">
+          <div class="kpi-icon"><i data-lucide="ticket"></i></div>
+          <div class="kpi-meta">
+            <div class="kpi-label">Open Tickets</div>
+            <div class="kpi-value">24</div>
+          </div>
+        </div>
 
-    <div class="kpi-card">
-      <h3>12</h3>
-      <p>Pending Reviews</p>
-    </div>
+        <div class="kpi-chart" aria-hidden="true">
+          <svg viewBox="0 0 120 36" preserveAspectRatio="none">
+            <path class="area" d="M0,30 C12,26 22,28 34,18 C46,8 58,14 70,10 C82,6 96,14 120,6 L120,36 L0,36 Z"></path>
+            <path class="line" d="M0,30 C12,26 22,28 34,18 C46,8 58,14 70,10 C82,6 96,14 120,6"></path>
+          </svg>
+        </div>
 
+        <div class="kpi-foot">
+          <span class="kpi-pill up"><i data-lucide="trending-up"></i> +8% WoW</span>
+          <span class="kpi-note">Queue pressure</span>
+        </div>
+      </article>
+
+      <!-- KPI 2 -->
+      <article class="kpi-card kpi--cyan">
+        <div class="kpi-top">
+          <div class="kpi-icon"><i data-lucide="shield-check"></i></div>
+          <div class="kpi-meta">
+            <div class="kpi-label">SLA Compliance</div>
+            <div class="kpi-value">98<span class="kpi-unit">%</span></div>
+          </div>
+        </div>
+
+        <div class="kpi-chart" aria-hidden="true">
+          <svg viewBox="0 0 120 36" preserveAspectRatio="none">
+            <path class="area" d="M0,18 C18,10 34,16 44,14 C60,10 78,14 90,10 C102,6 110,6 120,8 L120,36 L0,36 Z"></path>
+            <path class="line" d="M0,18 C18,10 34,16 44,14 C60,10 78,14 90,10 C102,6 110,6 120,8"></path>
+          </svg>
+        </div>
+
+        <div class="kpi-foot">
+          <span class="kpi-pill up"><i data-lucide="sparkles"></i> On track</span>
+          <span class="kpi-note">Target ≥ 95%</span>
+        </div>
+      </article>
+
+      <!-- KPI 3 -->
+      <article class="kpi-card kpi--green">
+        <div class="kpi-top">
+          <div class="kpi-icon"><i data-lucide="star"></i></div>
+          <div class="kpi-meta">
+            <div class="kpi-label">User Rating</div>
+            <div class="kpi-value">4.6<span class="kpi-unit">/5</span></div>
+          </div>
+        </div>
+
+        <div class="kpi-chart" aria-hidden="true">
+          <svg viewBox="0 0 120 36" preserveAspectRatio="none">
+            <path class="area" d="M0,22 C18,26 32,18 44,20 C58,22 70,14 82,16 C96,18 110,10 120,12 L120,36 L0,36 Z"></path>
+            <path class="line" d="M0,22 C18,26 32,18 44,20 C58,22 70,14 82,16 C96,18 110,10 120,12"></path>
+          </svg>
+        </div>
+
+        <div class="kpi-foot">
+          <span class="kpi-pill up"><i data-lucide="thumbs-up"></i> +0.2</span>
+          <span class="kpi-note">Last 30 days</span>
+        </div>
+      </article>
+
+      <!-- KPI 4 -->
+      <article class="kpi-card kpi--mix">
+        <div class="kpi-top">
+          <div class="kpi-icon"><i data-lucide="clipboard-check"></i></div>
+          <div class="kpi-meta">
+            <div class="kpi-label">Pending Reviews</div>
+            <div class="kpi-value">12</div>
+          </div>
+        </div>
+
+        <div class="kpi-chart" aria-hidden="true">
+          <svg viewBox="0 0 120 36" preserveAspectRatio="none">
+            <path class="area" d="M0,10 C14,14 30,8 44,12 C60,18 70,16 84,20 C98,24 110,18 120,22 L120,36 L0,36 Z"></path>
+            <path class="line" d="M0,10 C14,14 30,8 44,12 C60,18 70,16 84,20 C98,24 110,18 120,22"></path>
+          </svg>
+        </div>
+
+        <div class="kpi-foot">
+          <span class="kpi-pill down"><i data-lucide="trending-down"></i> -3</span>
+          <span class="kpi-note">Closure improving</span>
+        </div>
+      </article>
+
+    </div>
   </div>
 </section>
     
