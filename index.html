@@ -281,40 +281,37 @@
         </div>
 
         <!-- ✅ OPTION A: FORMSPREE (simple HTML form: set action to endpoint) -->
-        <!-- Formspree supports action="https://formspree.io/f/{form_id}" method="post" -->
+        <!-- Formspree supports action="https://formspree.io/f/xzdgjrnq" method="post" -->
         <!-- Source: Formspree HTML form example -->
         <form class="form" id="contactForm"
-              action="https://formspree.io/f/REPLACE_WITH_YOUR_ID"
-              method="post"
-              data-ajax="true">
-          <div class="fieldRow">
-            <label>
-              <span>Name</span>
-              <input name="name" type="text" placeholder="Your name" required>
-            </label>
-            <label>
-              <span>Email</span>
-              <input name="email" type="email" placeholder="Work email" required>
-            </label>
-          </div>
+      action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID"
+      method="POST" data-ajax="true">
 
-          <label>
-            <span>Message</span>
-            <textarea name="message" rows="4" placeholder="How can we help?" required></textarea>
-          </label>
+  <div class="fieldRow">
+    <label>
+      <span>Name</span>
+      <input name="name" type="text" placeholder="Your name" required>
+    </label>
 
-          <div class="form__actions">
-            <button class="btn btn--wide" type="submit">
-              <i data-lucide="send"></i>
-              Send
-            </button>
-            <p class="form__hint" id="formHint">
-              Replace <code>REPLACE_WITH_YOUR_ID</code> with your Formspree form ID (or switch to Netlify below).
-            </p>
-          </div>
+    <label>
+      <span>Email</span>
+      <input name="email" type="email" placeholder="Work email" required>
+    </label>
+  </div>
 
-          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
-        </form>
+  <label>
+    <span>Message</span>
+    <textarea name="message" rows="4" placeholder="How can we help?" required></textarea>
+  </label>
+
+  <!-- Optional: email subject line -->
+  <input type="hidden" name="_subject" value="New enquiry from AMX Advisory site">
+
+  <button class="btn btn--wide" type="submit">Send</button>
+
+  <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+</form>
+``
 
         <!-- ✅ OPTION B: NETLIFY FORMS (comment out Formspree form above & use this) -->
         <!-- Netlify detects forms at deploy time; add data-netlify="true" (or netlify) -->
