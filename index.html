@@ -1,29 +1,52 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>AMX Incident & Experience Advisory</title>
   <meta name="description" content="Major incident command, experience-led communication, and problem management governance." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Lucide icons (pin to a version; avoid @latest in production) -->
+  <!-- Lucide supports <i data-lucide="icon-name"></i> then lucide.createIcons() -->
+  <!-- Docs: https://lucide.dev/guide/packages/lucide -->
+  <script src="https://unpkg.com/lucide@0.563.0/dist/umd/lucide.min.js"></script>
 </head>
 
 <body>
+  <!-- Animated background blobs -->
+  <div class="bg" aria-hidden="true">
+    <div class="blob blob--a"></div>
+    <div class="blob blob--b"></div>
+    <div class="blob blob--c"></div>
+    <div class="grid"></div>
+  </div>
+
   <header class="nav">
     <div class="container nav__inner">
       <a class="brand" href="#">
         <span class="brand__mark">AMX</span>
-        <span class="brand__text">Incident & Experience Advisory</span>
+        <span class="brand__text">Incident &amp; Experience Advisory</span>
       </a>
+
       <nav class="nav__links">
         <a href="#services">Services</a>
-        <a href="#approach">Approach</a>
-        <a href="#value">Outcomes</a>
-        <a href="#contact" class="btn btn--small">Talk to us</a>
+        <a href="#case-studies">Case studies</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
       </nav>
+
+      <button class="themeToggle" id="themeToggle" aria-label="Toggle dark/light mode">
+        <span class="themeToggle__icon" aria-hidden="true">
+          <i data-lucide="sun"></i>
+        </span>
+        <span class="themeToggle__text">Theme</span>
+      </button>
     </div>
   </header>
 
@@ -31,45 +54,58 @@
     <!-- HERO -->
     <section class="hero">
       <div class="container hero__grid">
-        <div class="hero__copy">
-          <p class="pill">Major incident leadership • Experience-led comms • Governance</p>
-          <h1>Restore services fast—without losing trust.</h1>
+        <div class="hero__copy" data-reveal>
+          <p class="pill">
+            <i data-lucide="sparkles"></i>
+            Major incident leadership • Experience-led comms • Governance
+          </p>
+
+          <h1>Restore services fast — without losing trust.</h1>
+
           <p class="lead">
             AMX helps law firms, healthcare organisations, and consulting firms manage major IT incidents with clarity,
-            control, and confidence—protecting end-user trust, leadership assurance, and organisational reputation.
+            control, and confidence — protecting end-user trust, leadership assurance, and organisational reputation.
           </p>
+
           <div class="hero__cta">
-            <a class="btn" href="#contact">Book a consultation</a>
-            <a class="btn btn--ghost" href="#services">Explore services</a>
+            <a class="btn" href="#contact">
+              <i data-lucide="calendar"></i>
+              Book a consultation
+            </a>
+            <a class="btn btn--ghost" href="#services">
+              <i data-lucide="arrow-right"></i>
+              Explore services
+            </a>
           </div>
 
-          <div class="logos">
-            <span>For:</span>
-            <div class="logos__row">
-              <span class="tag">Law Firms</span>
-              <span class="tag">Healthcare</span>
-              <span class="tag">Consulting</span>
-              <span class="tag">Shared Services</span>
-            </div>
+          <div class="chips">
+            <span class="chip">Law Firms</span>
+            <span class="chip">Healthcare</span>
+            <span class="chip">Consulting</span>
+            <span class="chip">Shared Services</span>
           </div>
         </div>
 
-        <div class="hero__card">
-          <div class="glass">
-            <h3>During an incident, minutes matter.</h3>
-            <ul class="checklist">
-              <li><strong>Command</strong>: decision cadence, roles, escalation paths</li>
-              <li><strong>Comms</strong>: clear updates that reduce noise & anxiety</li>
-              <li><strong>Governance</strong>: learn, fix root causes, improve resilience</li>
+        <div class="hero__panel" data-reveal>
+          <div class="panel">
+            <h3>When pressure spikes, we bring structure.</h3>
+            <ul class="check">
+              <li><i data-lucide="shield-check"></i> Clear command, roles, escalation paths</li>
+              <li><i data-lucide="message-square"></i> Calm, consistent comms for every audience</li>
+              <li><i data-lucide="repeat-2"></i> Lessons learned → governance that sticks</li>
             </ul>
-            <div class="metric">
-              <div>
-                <p class="metric__label">Focus areas</p>
-                <p class="metric__value">Command • Experience • Problem Mgmt</p>
+
+            <div class="mini">
+              <div class="mini__item">
+                <span class="mini__k">Focus</span>
+                <span class="mini__v">Command • Experience • Problem Mgmt</span>
+              </div>
+              <div class="mini__item">
+                <span class="mini__k">Engagement</span>
+                <span class="mini__v">Advisory • Facilitation • Playbooks</span>
               </div>
             </div>
           </div>
-          <div class="hero__bg" aria-hidden="true"></div>
         </div>
       </div>
     </section>
@@ -77,38 +113,41 @@
     <!-- SERVICES -->
     <section id="services" class="section">
       <div class="container">
-        <div class="section__head">
+        <div class="section__head" data-reveal>
           <h2>What we do</h2>
-          <p>Practical, senior advisory support where complexity and risk are highest.</p>
+          <p>Senior, practical support for major incidents — designed to protect confidence while restoring service.</p>
         </div>
 
         <div class="cards">
-          <article class="card">
-            <h3>Incident Command & Control</h3>
-            <p>Set up effective incident leadership, roles, and decision rhythms to keep restoration moving.</p>
+          <article class="card" data-reveal>
+            <div class="card__icon"><i data-lucide="command"></i></div>
+            <h3>Incident Command &amp; Control</h3>
+            <p>Set decision cadence, roles, and visibility so teams execute without chaos.</p>
             <ul>
-              <li>Incident structure & RACI</li>
-              <li>Escalation paths & bridges</li>
-              <li>Leadership visibility & reporting</li>
+              <li>Incident structure &amp; RACI</li>
+              <li>Executive visibility &amp; updates</li>
+              <li>Bridge leadership &amp; escalation</li>
             </ul>
           </article>
 
-          <article class="card">
+          <article class="card" data-reveal>
+            <div class="card__icon"><i data-lucide="megaphone"></i></div>
             <h3>Experience‑Led Communication</h3>
-            <p>Protect trust with updates that are clear, consistent, and empathetic for every audience.</p>
+            <p>Reduce noise, confusion, and escalations through trusted messaging.</p>
             <ul>
-              <li>Stakeholder messaging</li>
-              <li>Executive updates</li>
-              <li>Customer/end‑user comms</li>
+              <li>Stakeholder comms packs</li>
+              <li>End‑user update templates</li>
+              <li>Leadership briefs that land</li>
             </ul>
           </article>
 
-          <article class="card">
+          <article class="card" data-reveal>
+            <div class="card__icon"><i data-lucide="git-merge"></i></div>
             <h3>Problem Management Governance</h3>
-            <p>Move from firefighting to resilience with strong reviews, actions, and governance that sticks.</p>
+            <p>Turn recovery into resilience with disciplined RCA and follow‑through.</p>
             <ul>
-              <li>RCA & PIR facilitation</li>
-              <li>Action tracking & ownership</li>
+              <li>PIR/RCA facilitation</li>
+              <li>Action tracking &amp; ownership</li>
               <li>Recurring issue elimination</li>
             </ul>
           </article>
@@ -116,104 +155,196 @@
       </div>
     </section>
 
-    <!-- APPROACH -->
-    <section id="approach" class="section section--alt">
-      <div class="container split">
-        <div>
-          <h2>Our approach</h2>
-          <p class="lead2">
-            We complement your existing IT and service management teams—bringing structure, calm, and senior guidance.
-          </p>
-          <div class="steps">
-            <div class="step">
-              <span class="step__num">01</span>
-              <div>
-                <h4>Stabilise</h4>
-                <p>Establish command, roles, and a decision cadence that reduces chaos.</p>
-              </div>
-            </div>
-            <div class="step">
-              <span class="step__num">02</span>
-              <div>
-                <h4>Restore</h4>
-                <p>Prioritise recovery with clear comms to stakeholders and leaders.</p>
-              </div>
-            </div>
-            <div class="step">
-              <span class="step__num">03</span>
-              <div>
-                <h4>Strengthen</h4>
-                <p>Drive lessons learned into governance, actions, and measurable resilience.</p>
-              </div>
-            </div>
-          </div>
+    <!-- CASE STUDIES -->
+    <section id="case-studies" class="section section--alt">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <h2>Case studies</h2>
+          <p>Examples of how AMX improves outcomes during high-impact disruption.</p>
         </div>
 
-        <aside class="quote">
-          <p>“How you respond defines your organisation. We help you respond with credibility and control.”</p>
-          <span>— AMX Advisory</span>
-        </aside>
+        <div class="caseGrid">
+          <article class="case" data-reveal>
+            <div class="case__top">
+              <span class="badge"><i data-lucide="scale"></i> Legal</span>
+              <span class="badge badge--soft">Major outage</span>
+            </div>
+            <h3>Regained control during a multi‑system outage</h3>
+            <p>
+              Established incident command, created executive updates, and stabilised stakeholder confidence while restoring services.
+            </p>
+            <div class="case__wins">
+              <span><i data-lucide="check"></i> Clear ownership</span>
+              <span><i data-lucide="check"></i> Faster decisions</span>
+              <span><i data-lucide="check"></i> Reduced escalations</span>
+            </div>
+          </article>
+
+          <article class="case" data-reveal>
+            <div class="case__top">
+              <span class="badge"><i data-lucide="heart-pulse"></i> Healthcare</span>
+              <span class="badge badge--soft">Customer impact</span>
+            </div>
+            <h3>Improved experience-led communication</h3>
+            <p>
+              Introduced targeted comms for clinical/admin users and leadership, reducing confusion and call volume during recovery.
+            </p>
+            <div class="case__wins">
+              <span><i data-lucide="check"></i> Less noise</span>
+              <span><i data-lucide="check"></i> Clear expectations</span>
+              <span><i data-lucide="check"></i> Higher trust</span>
+            </div>
+          </article>
+
+          <article class="case" data-reveal>
+            <div class="case__top">
+              <span class="badge"><i data-lucide="briefcase"></i> Consulting</span>
+              <span class="badge badge--soft">Repeat incidents</span>
+            </div>
+            <h3>Problem management that sticks</h3>
+            <p>
+              Implemented PIR governance and action closure discipline to reduce repeat incidents and improve resilience.
+            </p>
+            <div class="case__wins">
+              <span><i data-lucide="check"></i> Better RCAs</span>
+              <span><i data-lucide="check"></i> Actions closed</span>
+              <span><i data-lucide="check"></i> Stronger governance</span>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- OUTCOMES -->
-    <section id="value" class="section">
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="section">
       <div class="container">
-        <div class="section__head">
-          <h2>Outcomes you can expect</h2>
-          <p>Faster recovery, stronger confidence, and reduced repeat incidents.</p>
+        <div class="section__head" data-reveal>
+          <h2>Testimonials</h2>
+          <p>Replace these with real quotes when you’re ready.</p>
         </div>
 
-        <div class="stats">
-          <div class="stat">
-            <h3>Faster restoration</h3>
-            <p>Less confusion, better prioritisation, and tighter decision loops.</p>
-          </div>
-          <div class="stat">
-            <h3>Protected trust</h3>
-            <p>Stakeholders feel informed; end users see progress and clarity.</p>
-          </div>
-          <div class="stat">
-            <h3>Stronger governance</h3>
-            <p>Repeat issues reduced through disciplined RCA and action closure.</p>
-          </div>
+        <div class="tGrid">
+          <figure class="tCard" data-reveal>
+            <blockquote>
+              “AMX helped us move from frantic updates to a calm command structure. Leadership confidence improved immediately.”
+            </blockquote>
+            <figcaption>
+              <span class="avatar">A</span>
+              <div>
+                <strong>Operations Leader</strong>
+                <span>Professional services</span>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="tCard" data-reveal>
+            <blockquote>
+              “Their stakeholder communication templates reduced noise and escalations — we could focus on restoring service.”
+            </blockquote>
+            <figcaption>
+              <span class="avatar">S</span>
+              <div>
+                <strong>Service Manager</strong>
+                <span>Healthcare</span>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="tCard" data-reveal>
+            <blockquote>
+              “PIR governance became consistent and measurable. We finally closed actions instead of repeating incidents.”
+            </blockquote>
+            <figcaption>
+              <span class="avatar">R</span>
+              <div>
+                <strong>IT Director</strong>
+                <span>Legal</span>
+              </div>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact" class="section section--cta">
-      <div class="container cta">
-        <div>
-          <h2>Let’s make your incident response confidence‑building.</h2>
-          <p>Share a brief context and we’ll suggest the best engagement model.</p>
+      <div class="container cta" data-reveal>
+        <div class="cta__copy">
+          <h2>Talk to AMX</h2>
+          <p>Tell us what’s happening — we’ll suggest the best engagement model.</p>
+
+          <div class="cta__points">
+            <span><i data-lucide="clock"></i> Rapid incident support</span>
+            <span><i data-lucide="layers"></i> Templates + playbooks</span>
+            <span><i data-lucide="line-chart"></i> Governance improvement</span>
+          </div>
         </div>
 
-        <form class="form" action="mailto:your-email@domain.com" method="post" enctype="text/plain">
-          <input type="text" name="name" placeholder="Your name" required>
-          <input type="email" name="email" placeholder="Work email" required>
-          <textarea name="message" rows="4" placeholder="What do you need help with?"></textarea>
-          <button class="btn" type="submit">Send</button>
-          <p class="form__hint">Tip: Replace the email above with your official address.</p>
+        <!-- ✅ OPTION A: FORMSPREE (simple HTML form: set action to endpoint) -->
+        <!-- Formspree supports action="https://formspree.io/f/{form_id}" method="post" -->
+        <!-- Source: Formspree HTML form example -->
+        <form class="form" id="contactForm"
+              action="https://formspree.io/f/REPLACE_WITH_YOUR_ID"
+              method="post"
+              data-ajax="true">
+          <div class="fieldRow">
+            <label>
+              <span>Name</span>
+              <input name="name" type="text" placeholder="Your name" required>
+            </label>
+            <label>
+              <span>Email</span>
+              <input name="email" type="email" placeholder="Work email" required>
+            </label>
+          </div>
+
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="4" placeholder="How can we help?" required></textarea>
+          </label>
+
+          <div class="form__actions">
+            <button class="btn btn--wide" type="submit">
+              <i data-lucide="send"></i>
+              Send
+            </button>
+            <p class="form__hint" id="formHint">
+              Replace <code>REPLACE_WITH_YOUR_ID</code> with your Formspree form ID (or switch to Netlify below).
+            </p>
+          </div>
+
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
+
+        <!-- ✅ OPTION B: NETLIFY FORMS (comment out Formspree form above & use this) -->
+        <!-- Netlify detects forms at deploy time; add data-netlify="true" (or netlify) -->
+        <!-- Source: Netlify Forms setup docs -->
+        <!--
+        <form class="form" name="amx-contact" method="post" data-netlify="true">
+          <input type="hidden" name="form-name" value="amx-contact" />
+          <div class="fieldRow">
+            <label><span>Name</span><input name="name" type="text" required></label>
+            <label><span>Email</span><input name="email" type="email" required></label>
+          </div>
+          <label><span>Message</span><textarea name="message" rows="4" required></textarea></label>
+          <button class="btn btn--wide" type="submit"><i data-lucide="send"></i> Send</button>
+        </form>
+        -->
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
-      <p>© <span id="y"></span> AMX Incident & Experience Advisory</p>
+      <p>© <span id="y"></span> AMX Incident &amp; Experience Advisory</p>
       <div class="footer__links">
         <a href="#services">Services</a>
-        <a href="#approach">Approach</a>
+        <a href="#case-studies">Case studies</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
-``
